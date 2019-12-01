@@ -14,6 +14,7 @@ public enum UIColorInputError: Error {
     case unableToScanHexValue(String)
     case mismatchedHexStringLength(String)
     case unableToOutputHexStringForWideDisplayColor
+    case missingHexValue
 }
 
 extension UIColorInputError: LocalizedError {
@@ -31,6 +32,9 @@ extension UIColorInputError: LocalizedError {
             
         case .unableToOutputHexStringForWideDisplayColor:
             return "Unable to output hex string for wide display color"
+
+        case .missingHexValue:
+            return "You must pass a valid hex value"
         }
     }
 }

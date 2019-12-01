@@ -78,7 +78,10 @@ typealias Color = UIColor
      
      - parameter rgba: String value.
      */
-    public convenience init(rgba_throws rgba: String) throws {
+    public convenience init(rgba_throws rgba: String?) throws {
+
+        guard let rgba = rgba else { throw UIColorInputError.missingHexValue }
+        
         guard rgba.hasPrefix("#") else {
             let error = UIColorInputError.missingHashMarkAsPrefix(rgba)
             print(error.localizedDescription)
